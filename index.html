@@ -10,7 +10,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 50vh;
+            height: 80vh;
             margin: 0;
             font-family: 'Consolas', monospace;
         }
@@ -45,7 +45,8 @@
 </head>
 <body>
     <h1>FASCIA...</h1>
-    <p id="status">Self Myofascial Release</p>
+    <div id="status">Self Myofascial Release</div>
+    <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
     <audio id="cricketSound" src="cricket.wav"></audio>
     <script>
@@ -77,15 +78,18 @@
                 const currentTime = new Date().toTimeString().split(' ')[0];
                 document.getElementById('waitSecValue').textContent = `Wait_sec: ${seconds}`;
 
-                display.innerHTML = `Step: ${loopCount}/60<br>Wait_sec: ${seconds}<br>Current_time: ${currentTime}<br>End_time: ${endTime}`;
-
+                display.innerHTML = `
+                    <div class="status-line"><span class="status-label">Step:</span> <span>${loopCount}/60</span></div>
+                    <div class="status-line"><span class="status-label">Current_time:</span> <span>${currentTime}</span></div>
+                    <div class="status-line"><span class="status-label">End_time:</span> <span>${endTime}</span></div>
+                `;
 
                 if (--timer < 0) {
                     clearInterval(countdown);
                     if (loopCount < 59) {
                         showAlert();
                     } else {
-                        document.getElementById('status').textContent = 'Total time out: Alerting Finished';
+                        document.getElementById('status').innerHTML = '<div class="status-line"><span class="status-label">Total time out:</span> <span>Alerting Finished</span></div>';
                     }
                 }
             }, 1000);
