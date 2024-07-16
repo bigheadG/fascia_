@@ -33,10 +33,6 @@
             min-width: 120px;
             display: inline-block;
         }
-        #stepValue {
-            font-size: 48px;
-            margin-top: 20px;
-        }
         #waitSecValue {
             font-size: 48px;
             color: red;
@@ -48,7 +44,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA..</h1>
+    <h1>FASCIA...</h1>
     <p id="status">Self Myofascial Release</p>
     <button id="startButton">CLICK STARTING</button>
     <audio id="cricketSound" src="cricket.wav"></audio>
@@ -79,9 +75,10 @@
             const countdown = setInterval(() => {
                 const seconds = parseInt(timer % 60, 10);
                 const currentTime = new Date().toTimeString().split(' ')[0];
+                document.getElementById('waitSecValue').textContent = `Wait_sec: ${seconds}`;
+
                 display.innerHTML = `Step: ${loopCount}/60<br>Wait_sec: ${seconds}<br>Current_time: ${currentTime}<br>End_time: ${endTime}`;
 
-                //document.getElementById('waitSecValue').textContent = `Wait_sec: ${seconds}`;
 
                 if (--timer < 0) {
                     clearInterval(countdown);
