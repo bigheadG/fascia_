@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA V01</h1>
+    <h1>FASCIA V02</h1>
     <div id="status">Self Myofascial Release</div>
     <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
@@ -119,8 +119,10 @@
         }
 
         document.getElementById('startButton').addEventListener('click', () => {
+            console.log('Start button clicked');
             calculateEndTime();
             Notification.requestPermission().then(permission => {
+                console.log('Notification permission:', permission);
                 if (permission === 'granted') {
                     playCricketSound(1, 1000); // Play cricket sound 1 time, 1 second apart
                     setTimeout(() => {
@@ -130,11 +132,17 @@
                 } else {
                     alert('Notification permission denied');
                 }
+            }).catch(error => {
+                console.error('Notification permission request failed:', error);
             });
         });
     </script>
 </body>
 </html>
+
+
+
+
 
 
 <!--
