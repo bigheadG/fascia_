@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA V03</h1>
+    <h1>FASCIA V04</h1>
     <div id="status">Self Myofascial Release</div>
     <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
@@ -55,21 +55,13 @@
         const cricketSound = document.getElementById('cricketSound');
         let endTime;
 
-        function playCricketSound(times = 1, interval = 500) {
-            let count = 0;
-            const playSound = () => {
-                if (count < times) {
-                    cricketSound.currentTime = 0;
-                    cricketSound.play().then(() => {
-                        console.log('Cricket sound played');
-                    }).catch(error => {
-                        console.error('Error playing sound:', error);
-                    });
-                    count++;
-                    setTimeout(playSound, interval);
-                }
-            };
-            playSound();
+        function playCricketSound() {
+            cricketSound.currentTime = 0;
+            cricketSound.play().then(() => {
+                console.log('Cricket sound played');
+            }).catch(error => {
+                console.error('Error playing sound:', error);
+            });
         }
 
         function showNotification() {
@@ -78,6 +70,8 @@
                     body: 'Time to play the sound!',
                     icon: 'icon.png' // Optional icon for the notification
                 });
+            } else {
+                console.log('Notification permission not granted');
             }
         }
 
@@ -125,7 +119,7 @@
                 const permission = await Notification.requestPermission();
                 console.log('Notification permission:', permission);
                 if (permission === 'granted') {
-                    playCricketSound(1, 1000); // Play cricket sound 1 time, 1 second apart
+                    playCricketSound(); // Play cricket sound 1 time, 1 second apart
                     setTimeout(() => {
                         showAlert();
                         document.getElementById('startButton').style.display = 'none';
@@ -141,6 +135,7 @@
     </script>
 </body>
 </html>
+
 
 
 
