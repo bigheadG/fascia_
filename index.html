@@ -44,7 +44,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA.....</h1>
+    <h1>FASCIA</h1>
     <div id="status">Self Myofascial Release</div>
     <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
@@ -76,7 +76,7 @@
             const countdown = setInterval(() => {
                 const seconds = parseInt(timer % 60, 10);
                 const currentTime = new Date().toTimeString().split(' ')[0];
-                document.getElementById('waitSecValue').textContent = `${seconds} sec`;
+                document.getElementById('waitSecValue').textContent = `${seconds}`;
 
                 display.innerHTML = `
                     <div class="status-line"><span class="status-label">Step:</span> <span>${loopCount}/60</span></div>
