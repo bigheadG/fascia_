@@ -75,8 +75,13 @@
                 //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, Current time: ${currentTime}, End_time: ${endTime}`;
                 //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, End_time: ${endTime}`;
 		//display.textContent = `Step: ${loopCount}/60\nWait_sec: ${seconds}\nCurrent_time: ${currentTime}\nEnd_time: ${endTime}`;
-    		display.innerHTML = `Step:         ${loopCount}/60<br>Wait_sec:     ${seconds}<br>Current_time: ${currentTime}<br>End_time:    ${endTime}`;
-                                                                                            
+    		//display.innerHTML = `Step:         ${loopCount}/60<br>Wait_sec:     ${seconds}<br>Current_time: ${currentTime}<br>End_time:    ${endTime}`;
+                display.innerHTML = `
+                    <div class="status-line"><span>Step:</span> <span>${loopCount}/60</span></div>
+                    <div class="status-line"><span>Wait_sec:</span> <span>${seconds}</span></div>
+                    <div class="status-line"><span>Current_time:</span> <span>${currentTime}</span></div>
+                    <div class="status-line"><span>End_time:</span> <span>${endTime}</span></div>
+                `;                                                                            
 
                 if (--timer < 0) {
                     clearInterval(countdown);
