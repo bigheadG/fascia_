@@ -72,8 +72,10 @@
             const countdown = setInterval(() => {
                 seconds = parseInt(timer % 60, 10);
                 const currentTime = new Date().toTimeString().split(' ')[0];
-                display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, Current time: ${currentTime}, End_time: ${endTime}`;
+                //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, Current time: ${currentTime}, End_time: ${endTime}`;
                 //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, End_time: ${endTime}`;
+		display.textContent = `Step: ${loopCount}/60\nWait_sec: ${seconds}\nCurrent_time: ${currentTime}\nEnd_time: ${endTime}`;
+    
 
                 if (--timer < 0) {
                     clearInterval(countdown);
