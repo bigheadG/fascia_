@@ -1,10 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Myofascial Release Program</title>
-    <style>
+<style>
         body {
             display: flex;
             flex-direction: column;
@@ -23,8 +23,19 @@
         h1 {
             margin-bottom: 20px;
         }
-        p {
-            margin-bottom: 20px;
+        .status-line {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            margin-bottom: 5px;
+        }
+        .status-label {
+            min-width: 120px;
+            display: inline-block;
+        }
+        #stepValue {
+            font-size: 48px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -61,7 +72,11 @@
                 seconds = parseInt(timer % 60, 10);
                 const currentTime = new Date().toTimeString().split(' ')[0];
 		display.innerHTML = `Step________: ${loopCount}/60<br>Wait_sec____: ${seconds}<br>Current_time: ${currentTime}<br>End_time____: ${endTime}`;
-                 if (--timer < 0) {
+ 		
+		document.getElementById('stepValue').textContent = `Step: ${loopCount}/60`;
+
+                
+		if (--timer < 0) {
                     clearInterval(countdown);
                 }
             }, 1000);
