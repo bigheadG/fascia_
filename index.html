@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Myofascial Release Program</title>
-<style>
+    <style>
         body {
             display: flex;
             flex-direction: column;
@@ -41,7 +41,7 @@
 </head>
 <body>
     <h1>FASCIA</h1>
-    <p id="status">Self Myofasicial Release</p>
+    <p id="status">Self Myofascial Release</p>
     <button id="startButton">CLICK STARTING</button>
     <audio id="cricketSound" src="cricket.wav"></audio>
     <script>
@@ -65,39 +65,29 @@
             };
             playSound();
         }
-	    
-	function startCountdown(duration, loopCount, display) {
-            let timer = duration, seconds;
-            const countdown = setInterval(() => {
-                seconds = parseInt(timer % 60, 10);
-                const currentTime = new Date().toTimeString().split(' ')[0];
-		display.innerHTML = `Step________: ${loopCount}/60<br>Wait_sec____: ${seconds}<br>Current_time: ${currentTime}<br>End_time____: ${endTime}`;
- 		
-		//document.getElementById('stepValue').textContent = `Step: ${loopCount}/60`;
 
-                
-		if (--timer < 0) {
+        function startCountdown(duration, loopCount, display) {
+            let timer = duration;
+            const countdown = setInterval(() => {
+                const seconds = parseInt(timer % 60, 10);
+                const currentTime = new Date().toTimeString().split(' ')[0];
+                display.innerHTML = `Step: ${loopCount}/60<br>Wait_sec: ${seconds}<br>Current_time: ${currentTime}<br>End_time: ${endTime}`;
+
+                if (--timer < 0) {
                     clearInterval(countdown);
+                    if (loopCount < 59) {
+                        showAlert();
+                    } else {
+                        document.getElementById('status').textContent = 'Total time out: Alerting Finished';
+                    }
                 }
             }, 1000);
         }
-	    
+
         function showAlert() {
-            if (loopCount < 59) { // 59 cycles for normal alerts
-                playCricketSound();
-                loopCount++;
-                startCountdown(59, loopCount, document.getElementById('status'));
-                setTimeout(() => {
-                    showAlert();
-                }, 60000); // Wait for 60 seconds of silence before the next loop
-            } else if (loopCount === 59) { // Last cycle with 5 sounds
-                playCricketSound(10, 100); // Play cricket sound 3 times, 1 second apart
-                loopCount++;
-                startCountdown(59, loopCount, document.getElementById('status'));
-                setTimeout(() => {
-                    document.getElementById('status').textContent = 'Total time out: Alerting Finished';
-                }, 60000); // Final 60 seconds countdown
-            }
+            playCricketSound();
+            loopCount++;
+            startCountdown(59, loopCount, document.getElementById('status'));
         }
 
         function calculateEndTime() {
@@ -108,12 +98,10 @@
 
         document.getElementById('startButton').addEventListener('click', () => {
             calculateEndTime();
-	    playCricketSound(1, 1000); // Play cricket sound 1 times, 1 second apart
-            //playCricketSound(); // Play a test sound immediately to ensure it works
+            playCricketSound(1, 1000); // Play cricket sound 1 time, 1 second apart
             setTimeout(() => {
                 showAlert();
                 document.getElementById('startButton').style.display = 'none';
-                //document.getElementById('status').textContent = `1/60 Alerting, wait for 60 sec for next cycle. Last alert at ${endTime}`;
             }, 1000); // Delay to ensure the first sound is heard
         });
     </script>
