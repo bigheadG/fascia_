@@ -54,29 +54,13 @@
             };
             playSound();
         }
-
-        function startCountdown00(duration, loopCount, display) {
-            let timer = duration, seconds;
-            const countdown = setInterval(() => {
-                seconds = parseInt(timer % 60, 10);
-                display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, End_time: ${endTime}`;
-
-                if (--timer < 0) {
-                    clearInterval(countdown);
-                }
-            }, 1000);
-        }
-
+	    
 	function startCountdown(duration, loopCount, display) {
             let timer = duration, seconds;
             const countdown = setInterval(() => {
                 seconds = parseInt(timer % 60, 10);
                 const currentTime = new Date().toTimeString().split(' ')[0];
-                //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, Current time: ${currentTime}, End_time: ${endTime}`;
-                //display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, End_time: ${endTime}`;
-		//display.textContent = `Step: ${loopCount}/60\nWait_sec: ${seconds}\nCurrent_time: ${currentTime}\nEnd_time: ${endTime}`;
-    		//display.innerHTML = `Step:         ${loopCount}/60<br>Wait_sec:     ${seconds}<br>Current_time: ${currentTime}<br>End_time:    ${endTime}`;
-		  display.innerHTML = `Step________: ${loopCount}/60<br>Wait_sec____: ${seconds}<br>Current_time: ${currentTime}<br>End_time___: ${endTime}`;
+		display.innerHTML = `Step________: ${loopCount}/60<br>Wait_sec____: ${seconds}<br>Current_time: ${currentTime}<br>End_time____: ${endTime}`;
                  if (--timer < 0) {
                     clearInterval(countdown);
                 }
