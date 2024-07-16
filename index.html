@@ -59,7 +59,7 @@
             let timer = duration, seconds;
             const countdown = setInterval(() => {
                 seconds = parseInt(timer % 60, 10);
-                display.textContent = `${loopCount}/60 Alerting, wait for ${seconds} sec for next cycle. Last alert at ${endTime}`;
+                display.textContent = `Step: ${loopCount}/60, Wait_sec: ${seconds}, End_time: ${endTime}`;
 
                 if (--timer < 0) {
                     clearInterval(countdown);
