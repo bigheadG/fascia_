@@ -81,7 +81,7 @@
                 const currentTime = new Date().toTimeString().split(' ')[0];
                 display.innerHTML = `Step: ${loopCount}/60<br>Wait_sec: ${seconds}<br>Current_time: ${currentTime}<br>End_time: ${endTime}`;
 
-                document.getElementById('waitSecValue').textContent = `Wait_sec: ${seconds}`;
+                //document.getElementById('waitSecValue').textContent = `Wait_sec: ${seconds}`;
 
                 if (--timer < 0) {
                     clearInterval(countdown);
