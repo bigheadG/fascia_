@@ -80,9 +80,9 @@
                 document.getElementById('waitSecValue').textContent = `${seconds}`;
 
                 display.innerHTML = `
-                    <div class="status-line"><span class="status-label">Step:</span>  <span>${loopCount}/60</span></div>
-                    <div class="status-line"><span class="status-label">Current_time:</span> <span>${currentTime}</span></div>
-                    <div class="status-line"><span class="status-label">End_time:</span>  <span>${endTime}</span></div>
+                    <div class="status-line"><span class="status-label">Step: </span> <span>${loopCount}/60</span></div>
+                    <div class="status-line"><span class="status-label">Current_time: </span> <span>${currentTime}</span></div>
+                    <div class="status-line"><span class="status-label">End_time: </span> <span>${endTime}</span></div>
                 `;
 
                 if (--timer < 0) {
