@@ -73,7 +73,7 @@
                 const currentTime = new Date().toTimeString().split(' ')[0];
 		display.innerHTML = `Step________: ${loopCount}/60<br>Wait_sec____: ${seconds}<br>Current_time: ${currentTime}<br>End_time____: ${endTime}`;
  		
-		document.getElementById('stepValue').textContent = `Step: ${loopCount}/60`;
+		//document.getElementById('stepValue').textContent = `Step: ${loopCount}/60`;
 
                 
 		if (--timer < 0) {
@@ -108,7 +108,7 @@
 
         document.getElementById('startButton').addEventListener('click', () => {
             calculateEndTime();
-			playCricketSound(1, 1000); // Play cricket sound 1 times, 1 second apart
+	    playCricketSound(1, 1000); // Play cricket sound 1 times, 1 second apart
             //playCricketSound(); // Play a test sound immediately to ensure it works
             setTimeout(() => {
                 showAlert();
