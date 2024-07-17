@@ -20,7 +20,7 @@ Under "Source", select the branch (usually main) and the root directory.
 Click "Save" or "Save changes".
 GitHub Pages will provide a URL where your webpage is hosted. 
 
-(4) This usually looks like https://yourusername.github.io/fascia_/
+(4) This usually looks like https://bigheadG.github.io/fascia_/
 
 
 
