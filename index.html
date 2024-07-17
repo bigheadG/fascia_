@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA V02</h1>
+    <h1>FASCIA V03</h1>
     <div id="status">Self Myofascial Release since 2024.07.16</div>
     <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
@@ -88,10 +88,10 @@
 
                 if (--timer < 0) {
                     clearInterval(countdown);
-                    if (loopCount < 2) {
+                    if (loopCount < 1) {
                         showAlert();
                     } else {
-                        playCricketSound(times = 5, interval = 500)
+                        playCricketSound(times = 10, interval = 10000)
                         document.getElementById('status').innerHTML = '<div class="status-line"><span class="status-label">Total time out:</span> <span>Alerting Finished</span></div>';
                     }
                 }
