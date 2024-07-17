@@ -1,4 +1,39 @@
 # fascia_
+# How to build up own web page
+
+Step-by-Step Guide to Set Up GitHub Pages
+Create a GitHub Repository:
+
+(1) Go to GitHub and sign in to your account.
+Click the "+" icon in the top right corner and select "New repository".
+Name your repository (e.g., alert-program), set it to "Public", and click "Create repository".
+Upload Your Files:
+
+(2) On your repository page, click "Add file" and select "Upload files".
+Drag and drop your index.html and cricket.wav files into the upload area.
+Click "Commit changes" to upload the files to the repository.
+Enable GitHub Pages:
+
+(3) Go to the repository settings by clicking the "Settings" tab.
+Scroll down to the "GitHub Pages" section.
+Under "Source", select the branch (usually main) and the root directory.
+Click "Save" or "Save changes".
+GitHub Pages will provide a URL where your webpage is hosted. 
+
+(4) This usually looks like https://yourusername.github.io/fascia_/
+
+
+
+
+
+
+
+
+
+
+
+
+
 # vesion 2.0
 <!DOCTYPE html>
 <html lang="en">
