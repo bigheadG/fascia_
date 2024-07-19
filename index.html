@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-    <h1>FASCIA V08</h1>
+    <h1>FASCIA V09</h1>
     <div id="status">Self Myofascial Release since 2024.07.16</div>
     <div id="waitSecValue"></div>
     <button id="startButton">CLICK STARTING</button>
@@ -53,7 +53,7 @@
     <script>
         let loopCount = 0;
         const cricketSound = document.getElementById('cricketSound');
-        cricketSound.volume = 0.25;  // Set volume to 25%
+        //cricketSound.volume = 0.25;  // Set volume to 25%
         let endTime;
         let countdownInterval;
         let timerStartTime;
@@ -67,6 +67,7 @@
                     cricketSound.play().then(() => {
                         console.log('Cricket sound played');
                     }).catch(error => {
+                        alert('JB> no playing sound');
                         console.error('Error playing sound:', error);
                     });
                     count++;
@@ -107,7 +108,7 @@
                     if (loopCount < 59) {
                         showAlert();
                     } else {
-                        playCricketSound(5, 1000); // Play cricket sound 5 times, 1 second apart
+                        playCricketSound(60, 1000); // Play cricket sound 60 times, 1 second apart
                         document.getElementById('status').innerHTML = '<div class="status-line"><span class="status-label">Total time out:</span> <span>Alerting Finished</span></div>';
                     }
                 }
